@@ -1,0 +1,44 @@
+﻿@model DemoEntities.PrimeSumRequest
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PrimeSumRequest</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartNumber)
+            @Html.ValidationMessageFor(model => model.StartNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndNumber)
+            @Html.ValidationMessageFor(model => model.EndNumber)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
